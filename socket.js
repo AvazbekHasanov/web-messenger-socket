@@ -7,6 +7,15 @@ const server = http.createServer(app);
 const {Server} = require("socket.io");
 const io = new Server(server);
 
+const cors = require('cors');
+
+const corsOptions = {
+  origin: '*', // Add your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 const userList = [];
 
